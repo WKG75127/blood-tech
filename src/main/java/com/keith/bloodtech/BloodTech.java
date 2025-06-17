@@ -27,6 +27,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import static com.keith.bloodtech.block.ModBlocks.*;
+import static com.keith.bloodtech.block.entity.ModBlockEntities.BLOCK_ENTITIES;
 import static com.keith.bloodtech.item.ModItems.*;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -59,6 +60,7 @@ public class BloodTech
                 output.accept(PLASMA.get());
                 output.accept(PLATELET.get());
                 output.accept(MECHANICAL_HEART_ITEM.get());
+                output.accept(CENTRIFUGE_ITEM.get());
             }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
@@ -74,7 +76,7 @@ public class BloodTech
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
-
+        BLOCK_ENTITIES.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.

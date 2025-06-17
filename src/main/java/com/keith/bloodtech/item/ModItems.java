@@ -17,5 +17,7 @@ public class ModItems {
     public static final DeferredItem<Item> PLATELET = ITEMS.registerSimpleItem("platelet", new Item.Properties());
     public static final DeferredItem<Item> HEMOGLOBIN = ITEMS.registerSimpleItem("hemoglobin", new Item.Properties());
     public static final DeferredItem<Item> HEART = ITEMS.registerSimpleItem("heart", new Item.Properties());
-public static final DeferredItem<BlockItem> MECHANICAL_HEART_ITEM = ITEMS.registerSimpleBlockItem("heartmachine",MECHANICAL_HEART);
+    public static final DeferredItem<BlockItem> MECHANICAL_HEART_ITEM = ITEMS.registerSimpleBlockItem("heartmachine",MECHANICAL_HEART);
+    public static final DeferredItem<BlockItem> CENTRIFUGE_ITEM = ITEMS.registerSimpleBlockItem("centrifuge",CENTRIFUGE_BLOCK);
+
 }
