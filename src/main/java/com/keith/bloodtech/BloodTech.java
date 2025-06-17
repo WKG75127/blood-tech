@@ -26,8 +26,8 @@ import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import static com.keith.bloodtech.ModBlocks.BLOCKS;
-import static com.keith.bloodtech.ModItems.*;
+import static com.keith.bloodtech.block.ModBlocks.*;
+import static com.keith.bloodtech.item.ModItems.*;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(BloodTech.MODID)
