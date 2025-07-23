@@ -1,0 +1,12 @@
+{
+  "type": "bloodtech:centrifuge",
+  "ingredient": {
+    "item": "bloodtech:plasma"
+  },
+  "result": [
+    {
+      "id": "bloodtech:platelet_bit",
+      "count": 1
+    }
+  ]
+}

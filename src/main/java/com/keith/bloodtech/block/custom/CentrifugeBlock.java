@@ -1,18 +1,25 @@
 package com.keith.bloodtech.block.custom;
 
 import com.keith.bloodtech.block.entity.CentrifugeBlockEntity;
+import com.keith.bloodtech.block.entity.ModBlockEntities;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -39,8 +46,8 @@ public class CentrifugeBlock extends BaseEntityBlock {
 
     @Override
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
-        if(state.getBlock() != newState.getBlock()){
-            if(level.getBlockEntity(pos) instanceof CentrifugeBlockEntity centrifugeBlockEntity){
+        if (state.getBlock() != newState.getBlock()) {
+            if (level.getBlockEntity(pos) instanceof CentrifugeBlockEntity centrifugeBlockEntity) {
                 centrifugeBlockEntity.drops();
                 level.updateNeighbourForOutputSignal(pos, this);
             }
@@ -50,19 +57,26 @@ public class CentrifugeBlock extends BaseEntityBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+
         if(level.getBlockEntity(pos) instanceof CentrifugeBlockEntity centrifugeBlockEntity){
             //insert item
-            if(!stack.isEmpty()|| centrifugeBlockEntity.inventory.getStackInSlot(0).is(stack.getItem())){
-                centrifugeBlockEntity.inventory.insertItem(0, stack.copy(), false);
-                stack.shrink(1);
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 2f);
+            if(!level.isClientSide){
+                ((ServerPlayer) player).openMenu(new SimpleMenuProvider(centrifugeBlockEntity, Component.literal("Centrifuge")), pos);
+                return ItemInteractionResult.SUCCESS;
             }
-            else if(stack.isEmpty() || (centrifugeBlockEntity.inventory.getStackInSlot(0).is(stack.getItem()))){
-                ItemStack ItemInCentrifuge = centrifugeBlockEntity.inventory.extractItem(0,1,false);
-                player.setItemInHand(InteractionHand.MAIN_HAND,ItemInCentrifuge);
-                level.playSound(player, pos, SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1f, 1f);
-            }
+
         }
         return ItemInteractionResult.SUCCESS;
+    }
+
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
+        if(level.isClientSide()) {
+            return null;
+        }
+
+        return createTickerHelper(blockEntityType, ModBlockEntities.CENTRIFUGE_BLOCK_ENTITY.get(),
+                (level1, blockPos, blockState, blockEntity) -> blockEntity.tick(level1, blockPos, blockState));
     }
 }

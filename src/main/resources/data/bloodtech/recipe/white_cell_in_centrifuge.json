@@ -1,0 +1,16 @@
+{
+  "type": "bloodtech:centrifuge",
+  "ingredient": {
+    "item": "bloodtech:white_cell"
+  },
+  "result": [
+    {
+      "id": "bloodtech:buffy",
+      "count": 1
+    },
+    {
+      "id": "bloodtech:virus",
+      "count": 2
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "bloodtech:centrifuge",
+  "ingredient": {
+    "item": "bloodtech:red_cell"
+  },
+  "result": [
+    {
+      "id": "bloodtech:hemoglobin",
+      "count": 1
+    },
+    {
+      "id": "minecraft:iron_nugget",
+      "count": 4
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 package com.keith.bloodtech;
 
+import com.keith.bloodtech.recipe.ModRecipes;
+import com.keith.bloodtech.screen.ModMenuTypes;
+import com.keith.bloodtech.screen.custom.CentrifugeScreen;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -29,6 +33,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import static com.keith.bloodtech.block.ModBlocks.*;
 import static com.keith.bloodtech.block.entity.ModBlockEntities.BLOCK_ENTITIES;
 import static com.keith.bloodtech.item.ModItems.*;
+import static com.keith.bloodtech.screen.ModMenuTypes.MENUS;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(BloodTech.MODID)
@@ -77,6 +82,8 @@ public class BloodTech
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
+        MENUS.register(modEventBus);
+        ModRecipes.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
@@ -125,6 +132,10 @@ public class BloodTech
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event){
+            event.register(ModMenuTypes.CENTRIFUGE_MENU.get(), CentrifugeScreen::new);
         }
     }
 }
