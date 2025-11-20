@@ -3,12 +3,12 @@
   "category": "redstone",
   "key": {
     "#": {
-      "item": "bloodtech:platelet_bit"
+      "item": "minecraft:paper"
     }
   },
   "pattern": [
     "###",
-    "# #",
+    "###",
     "###"
   ],
   "result": {

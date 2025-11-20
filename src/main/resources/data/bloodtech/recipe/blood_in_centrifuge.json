@@ -1,7 +1,7 @@
 {
   "type": "bloodtech:centrifuge",
   "ingredient": {
-    "item": "bloodtech:blood"
+    "item": "bloodtech:blood_bucket"
   },
   "result": [
     {
@@ -13,11 +13,11 @@
       "count": 4
     },
     {
-      "id": "bloodtech:plasma_cell",
+      "id": "bloodtech:plasma",
       "count": 6
     },
     {
-      "id": "bloodtech:plasma_cell",
+      "id": "bloodtech:platelet",
       "count": 2
     }
   ]

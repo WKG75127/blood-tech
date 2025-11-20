@@ -1,5 +1,7 @@
 package com.keith.bloodtech;
 
+import com.keith.bloodtech.fluid.ModFluidTypes;
+import com.keith.bloodtech.fluid.ModFluids;
 import com.keith.bloodtech.recipe.ModRecipes;
 import com.keith.bloodtech.screen.ModMenuTypes;
 import com.keith.bloodtech.screen.custom.CentrifugeScreen;
@@ -64,8 +66,39 @@ public class BloodTech
                 output.accept(WHITECELL.get());
                 output.accept(PLASMA.get());
                 output.accept(PLATELET.get());
+                output.accept(PLATELET_BIT.get());
+                output.accept(BLOOD_BUCKET.get());
+                output.accept(BUFFY.get());
+                output.accept(VIRUS.get());
                 output.accept(MECHANICAL_HEART_ITEM.get());
                 output.accept(CENTRIFUGE_ITEM.get());
+                output.accept(RESISTANCE_GENERATOR_ITEM.get());
+                output.accept(WEAK_CHARM.get());
+                output.accept(SPEED_CHARM.get());
+                output.accept(SLOW_CHARM.get());
+                output.accept(HASTE_CHARM.get());
+                output.accept(FATIGUE_CHARM.get());
+                output.accept(STRENGTH_CHARM.get());
+                output.accept(JUMP_CHARM.get());
+                output.accept(NAUSEA_CHARM.get());
+                output.accept(REGEN_CHARM.get());
+                output.accept(RESISTANCE_CHARM.get());
+                output.accept(WATER_CHARM.get());
+                output.accept(INVIS_CHARM.get());
+                output.accept(BLIND_CHARM.get());
+                output.accept(VISION_CHARM.get());
+                output.accept(WEAK_CHARM.get());
+                output.accept(POISON_CHARM.get());
+                output.accept(WITHER_CHARM.get());
+                output.accept(FIRE_RESISTANCE_CHARM.get());
+                output.accept(ABSORPTION_CHARM.get());
+                output.accept(LEVITATION_CHARM.get());
+                output.accept(SLOW_FALL_CHARM.get());
+                output.accept(GLOWING_CHARM.get());
+                output.accept(BLANK_CHARM.get());
+
+                output.accept(SYRINGE.get());
+                output.accept(BLOOD_SYRINGE.get());
             }).build());
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
@@ -83,6 +116,8 @@ public class BloodTech
         CREATIVE_MODE_TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
         MENUS.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
         ModRecipes.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
