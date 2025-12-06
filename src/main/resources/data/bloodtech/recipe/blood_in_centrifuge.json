@@ -1,7 +1,7 @@
 {
   "type": "bloodtech:centrifuge",
   "ingredient": {
-    "item": "bloodtech:blood_bucket"
+    "item": "bloodtech:blood_syringe"
   },
   "result": [
     {

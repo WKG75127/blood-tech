@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "bloodtech:blank_charm"
+    },
+    {
+      "item": "minecraft:skulk"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloodtech:blind_charm"
+  }
+}

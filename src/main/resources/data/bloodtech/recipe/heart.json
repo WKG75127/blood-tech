@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "#": {
+      "item": "bloodtech:platelet"
+    },
+    "P": {
+      "item": "bloodtech:plasma"
+    },
+    "+": {
+      "item": "bloodtech:red_cell"
+    },
+    "-": {
+      "item": "bloodtech:white_cell"
+    }
+  },
+  "pattern": [
+    "+#-",
+    "#P#",
+    "+#-"
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloodtech:heart"
+  }
+}

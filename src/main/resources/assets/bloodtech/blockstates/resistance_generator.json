@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "bloodtech:block/resistance_generator"
+    }
+  }
+}

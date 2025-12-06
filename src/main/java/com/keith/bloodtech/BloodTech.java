@@ -1,7 +1,6 @@
 package com.keith.bloodtech;
 
-import com.keith.bloodtech.fluid.ModFluidTypes;
-import com.keith.bloodtech.fluid.ModFluids;
+
 import com.keith.bloodtech.recipe.ModRecipes;
 import com.keith.bloodtech.screen.ModMenuTypes;
 import com.keith.bloodtech.screen.custom.CentrifugeScreen;
@@ -57,9 +56,8 @@ public class BloodTech
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.bloodtech")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> BLOOD.get().getDefaultInstance())
+            .icon(() -> BLOOD_SYRINGE.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
-                output.accept(BLOOD.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
                 output.accept(HEMOGLOBIN.get());
                 output.accept(HEART.get());
                 output.accept(REDCELL.get());
@@ -67,7 +65,6 @@ public class BloodTech
                 output.accept(PLASMA.get());
                 output.accept(PLATELET.get());
                 output.accept(PLATELET_BIT.get());
-                output.accept(BLOOD_BUCKET.get());
                 output.accept(BUFFY.get());
                 output.accept(VIRUS.get());
                 output.accept(MECHANICAL_HEART_ITEM.get());
@@ -116,8 +113,7 @@ public class BloodTech
         CREATIVE_MODE_TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
         MENUS.register(modEventBus);
-        ModFluidTypes.register(modEventBus);
-        ModFluids.register(modEventBus);
+
         ModRecipes.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.

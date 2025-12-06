@@ -3,19 +3,22 @@
   "category": "redstone",
   "key": {
     "#": {
-      "item": "minecraft:paper"
+      "item": "bloodtech:iron_ingot"
     },
     "P": {
-      "item": "bloodtech:platelet"
+      "item": "bloodtech:heartmachine"
+    },
+    "*": {
+      "item": "minecraft:nether_star"
     }
   },
   "pattern": [
-    "###",
+    "#*#",
     "#P#",
     "###"
   ],
   "result": {
     "count": 1,
-    "id": "bloodtech:blank_charm"
+    "id": "bloodtech:resistance_generator"
   }
 }

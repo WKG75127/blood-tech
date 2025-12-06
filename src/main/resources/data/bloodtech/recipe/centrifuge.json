@@ -3,19 +3,19 @@
   "category": "redstone",
   "key": {
     "#": {
-      "item": "minecraft:paper"
+      "item": "bloodtech:iron_ingot"
     },
-    "P": {
-      "item": "bloodtech:platelet"
+    "|": {
+      "item": "bloodtech:syringe"
     }
   },
   "pattern": [
     "###",
-    "#P#",
-    "###"
+    "# #",
+    "#|#"
   ],
   "result": {
     "count": 1,
-    "id": "bloodtech:blank_charm"
+    "id": "bloodtech:heartmachine"
   }
 }

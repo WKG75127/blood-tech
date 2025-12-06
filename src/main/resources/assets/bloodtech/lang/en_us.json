@@ -1,6 +1,5 @@
 {
   "itemGroup.bloodtech": "Blood Tech",
-  "block.examplemod.example_block": "Example Block",
   "item.bloodtech.absorption_charm": "Absorption Charm",
   "item.bloodtech.blank_charm": "Blank Charm",
   "item.bloodtech.blind_charm": "Blindness Charm",
@@ -24,5 +23,18 @@
   "item.bloodtech.vision_charm": "Night Vision Charm",
   "item.bloodtech.water_charm": "Water Breathing Charm",
   "item.bloodtech.weak_charm": "Weakness Charm",
-  "item.bloodtech.wither_charm": "Wither Charm"
+  "item.bloodtech.wither_charm": "Wither Charm",
+  "block.bloodtech.resistance_generator": "Effect Generator",
+  "item.bloodtech.heart": "Heart",
+  "item.bloodtech.heartmachine": "Mechanical Heart",
+  "item.bloodtech.white_cell": "White Blood Cell",
+  "item.bloodtech.red_cell": "Red Blood Cell",
+  "item.bloodtech.plasma": "Plasma",
+  "item.bloodtech.platelet": "Platelet",
+  "item.bloodtech.platelet_bit": "Platelet Bit",
+  "item.bloodtech.virus": "Virus",
+  "item.bloodtech.buffy_shell": "Buffy",
+  "item.bloodtech.blood_bucket": "Bucket of Blood",
+  "item.bloodtech.hemoglobin": "Hemoglobin",
+  "block.bloodtech.centrifuge": "Centrifuge"
 }

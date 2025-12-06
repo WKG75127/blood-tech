@@ -3,19 +3,23 @@
   "category": "redstone",
   "key": {
     "#": {
-      "item": "minecraft:paper"
+      "item": "minecraft:glass_pane"
     },
-    "P": {
-      "item": "bloodtech:platelet"
+    "I": {
+      "item": "minecraft:iron_nugget"
     }
   },
   "pattern": [
+    " I ",
     "###",
-    "#P#",
-    "###"
+    " I "
   ],
   "result": {
     "count": 1,
-    "id": "bloodtech:blank_charm"
+    "id": "bloodtech:syringe",
+
+
+
+
   }
 }

@@ -63,9 +63,9 @@ public class ResistanceGenBlock extends BaseEntityBlock {
 
         if (level.getBlockEntity(pos) instanceof ResistanceGenBlockEntity resistancegenblockentity) {
             if (!level.isClientSide) {
-                if(stack.is(ModItems.BLOOD_BUCKET)) {
+                if(stack.is(ModItems.BLOOD_SYRINGE)) {
                     resistancegenblockentity.increaseFeulLevel(320);
-                    player.setItemInHand(player.getUsedItemHand(),new ItemStack(Items.BUCKET));
+                    player.setItemInHand(player.getUsedItemHand(),new ItemStack(ModItems.SYRINGE.get()));
                     return ItemInteractionResult.SUCCESS;
                 }
                 if(stack.is(ModItems.WEAK_CHARM)){

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "bloodtech:blank_charm"
+    },
+    {
+      "item": "minecraft:feather"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "bloodtech:slow_fall_charm"
+  }
+}

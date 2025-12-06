@@ -1,6 +1,6 @@
 package com.keith.bloodtech.item;
 
-import com.keith.bloodtech.fluid.ModFluids;
+
 import com.keith.bloodtech.item.custom.Syringe;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BucketItem;
@@ -14,12 +14,10 @@ import static com.keith.bloodtech.BloodTech.MODID;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    public static final DeferredItem<Item> BLOOD = ITEMS.registerSimpleItem("blood", new Item.Properties());
     public static final DeferredItem<Item> PLASMA = ITEMS.registerSimpleItem("plasma", new Item.Properties());
     public static final DeferredItem<Item> REDCELL = ITEMS.registerSimpleItem("red_cell", new Item.Properties());
     public static final DeferredItem<Item> WHITECELL = ITEMS.registerSimpleItem("white_cell", new Item.Properties());
     public static final DeferredItem<Item> PLATELET = ITEMS.registerSimpleItem("platelet", new Item.Properties());
-    public static final DeferredItem<Item> BLOOD_BUCKET = ITEMS.register("blood_bucket",() -> new BucketItem(ModFluids.SOURCE_BLOOD.get(),new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET)));
     public static final DeferredItem<Item> PLATELET_BIT = ITEMS.registerSimpleItem("platelet_bit", new Item.Properties());
     public static final DeferredItem<Item> VIRUS = ITEMS.registerSimpleItem("virus", new Item.Properties());
     public static final DeferredItem<Item> BUFFY = ITEMS.registerSimpleItem("buffy_shell", new Item.Properties());
@@ -51,7 +49,7 @@ public class ModItems {
     public static final DeferredItem<Item> BLOOD_SYRINGE = ITEMS.registerSimpleItem("blood_syringe", new Item.Properties().stacksTo(1));
 
 
-    public static final DeferredItem<BlockItem> MECHANICAL_HEART_ITEM = ITEMS.registerSimpleBlockItem("heartmachine",MECHANICAL_HEART);
+    public static final DeferredItem<Item> MECHANICAL_HEART_ITEM = ITEMS.registerSimpleItem("heartmachine", new Item.Properties());
     public static final DeferredItem<BlockItem> CENTRIFUGE_ITEM = ITEMS.registerSimpleBlockItem("centrifuge",CENTRIFUGE_BLOCK);
-    public static final DeferredItem<BlockItem> RESISTANCE_GENERATOR_ITEM = ITEMS.registerSimpleBlockItem("resistance_generator_item",RESISTANCE_GENERATOR);
+    public static final DeferredItem<BlockItem> RESISTANCE_GENERATOR_ITEM = ITEMS.registerSimpleBlockItem("resistance_generator",RESISTANCE_GENERATOR);
 }
