@@ -4,6 +4,7 @@ import com.keith.bloodtech.BloodTech;
 import com.keith.bloodtech.block.entity.CentrifugeBlockEntity;
 import com.keith.bloodtech.block.entity.ModBlockEntities;
 import com.keith.bloodtech.block.entity.ResistanceGenBlockEntity;
+import com.keith.bloodtech.fluid.ModFluids;
 import com.keith.bloodtech.item.ModItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
@@ -63,8 +64,13 @@ public class ResistanceGenBlock extends BaseEntityBlock {
 
         if (level.getBlockEntity(pos) instanceof ResistanceGenBlockEntity resistancegenblockentity) {
             if (!level.isClientSide) {
+                if(stack.is(ModItems.BLOOD_BUCKET)) {
+                    resistancegenblockentity.increaseFeulLevel(1000);
+                    player.setItemInHand(player.getUsedItemHand(),new ItemStack(Items.BUCKET));
+                    return ItemInteractionResult.SUCCESS;
+                }
                 if(stack.is(ModItems.BLOOD_SYRINGE)) {
-                    resistancegenblockentity.increaseFeulLevel(320);
+                    resistancegenblockentity.increaseFeulLevel(333);
                     player.setItemInHand(player.getUsedItemHand(),new ItemStack(ModItems.SYRINGE.get()));
                     return ItemInteractionResult.SUCCESS;
                 }

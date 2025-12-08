@@ -1,6 +1,7 @@
 package com.keith.bloodtech.item;
 
 
+import com.keith.bloodtech.fluid.ModFluids;
 import com.keith.bloodtech.item.custom.Syringe;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BucketItem;
@@ -46,8 +47,10 @@ public class ModItems {
     public static final DeferredItem<Item> GLOWING_CHARM = ITEMS.registerSimpleItem("glowing_charm", new Item.Properties());
     public static final DeferredItem<Item> BLANK_CHARM = ITEMS.registerSimpleItem("blank_charm", new Item.Properties());
     public static final DeferredItem<Item> SYRINGE = ITEMS.register("syringe",() -> new Syringe(new Item.Properties().stacksTo(1)));
-    public static final DeferredItem<Item> BLOOD_SYRINGE = ITEMS.registerSimpleItem("blood_syringe", new Item.Properties().stacksTo(1));
-
+    public static final DeferredItem<Item> BLOOD_SYRINGE = ModItems.ITEMS.registerItem("blood_syringe",
+            properties -> new BucketItem(ModFluids.SOURCE_BLOOD.get(), properties.craftRemainder(ModItems.SYRINGE.asItem()).stacksTo(1)));
+    public static final DeferredItem<Item> BLOOD_BUCKET = ModItems.ITEMS.registerItem("blood_bucket",
+            properties -> new BucketItem(ModFluids.SOURCE_BLOOD.get(), properties.craftRemainder(Items.BUCKET).stacksTo(1)));
 
     public static final DeferredItem<Item> MECHANICAL_HEART_ITEM = ITEMS.registerSimpleItem("heartmachine", new Item.Properties());
     public static final DeferredItem<BlockItem> CENTRIFUGE_ITEM = ITEMS.registerSimpleBlockItem("centrifuge",CENTRIFUGE_BLOCK);

@@ -1,10 +1,16 @@
 package com.keith.bloodtech;
 
 
+import com.keith.bloodtech.fluid.BaseFluidType;
+import com.keith.bloodtech.fluid.ModFluidTypes;
+import com.keith.bloodtech.fluid.ModFluids;
 import com.keith.bloodtech.recipe.ModRecipes;
 import com.keith.bloodtech.screen.ModMenuTypes;
 import com.keith.bloodtech.screen.custom.CentrifugeScreen;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -50,9 +56,7 @@ public class BloodTech
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
 
-    // Creates a new food item with the id "examplemod:example_id", nutrition 1 and saturation 2
 
-    // Creates a creative tab with the id "examplemod:example_tab" for the example item, that is placed after the combat tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.bloodtech")) //The language key for the title of your CreativeModeTab
             .withTabsBefore(CreativeModeTabs.COMBAT)
@@ -93,7 +97,7 @@ public class BloodTech
                 output.accept(SLOW_FALL_CHARM.get());
                 output.accept(GLOWING_CHARM.get());
                 output.accept(BLANK_CHARM.get());
-
+                output.accept(BLOOD_BUCKET.get());
                 output.accept(SYRINGE.get());
                 output.accept(BLOOD_SYRINGE.get());
             }).build());
@@ -113,7 +117,8 @@ public class BloodTech
         CREATIVE_MODE_TABS.register(modEventBus);
         BLOCK_ENTITIES.register(modEventBus);
         MENUS.register(modEventBus);
-
+        ModFluids.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
         ModRecipes.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (ExampleMod) to respond directly to events.
@@ -163,6 +168,11 @@ public class BloodTech
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+        @SubscribeEvent
+        public static void onClientExtensions(RegisterClientExtensionsEvent event) {
+            event.registerFluidType(((BaseFluidType) ModFluidTypes.BLOOD_FLUID_TYPE.get()).getClientFluidTypeExtensions(),
+                    ModFluidTypes.BLOOD_FLUID_TYPE.get());
         }
         @SubscribeEvent
         public static void registerScreens(RegisterMenuScreensEvent event){
